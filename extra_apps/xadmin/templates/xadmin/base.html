@@ -1,0 +1,113 @@
+{% load xadmin_tags %}{% load i18n %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  {% block extrameta %}
+  <meta name="description" content="">
+  <meta name="author" content="">
+  {% endblock %}
+  {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+  {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "xadmin/css/rtl.css" %}{% endblock %}" />{% endif %}
+  {% vendor 'bootstrap.css' %}
+  {% if site_theme %}
+  <link rel="stylesheet" type="text/css" id="site-theme" href="{{site_theme}}" />
+  {% else %}
+  <link rel="stylesheet" type="text/css" href="{% static "xadmin/css/themes/bootstrap-xadmin.css" %}" />
+  {% endif %}
+  {% vendor 'font-awesome.css' 'xadmin.main.css' 'xadmin.plugins.css' 'xadmin.responsive.css' %}
+  {{ media.css }}
+  {% block extrastyle %}{% endblock %}
+  {% vendor 'jquery.js' %}
+  {% url 'xadmin:index' as indexurl %}
+  <script src="/discount/static/js/jquery.artDialog.js?skin=default"></script>
+  <script type="text/javascript">
+    window.__admin_media_prefix__ = "{% filter escapejs %}{% static "xadmin/" %}{% endfilter %}";
+    window.__admin_path_prefix__ = "{% filter escapejs %}{{ indexurl }}{% endfilter %}";
+    window.__admin_language_code__ = "{{LANGUAGE_CODE}}";
+  </script>
+{% if user.username %}
+  <script>
+    artDialog.notice = function (options) {
+        var opt = options || {},
+            api, aConfig, hide, wrap, top,
+            duration = 800;
+
+        var config = {
+            id: 'Notice',
+            left: '100%',
+            top: '100%',
+            fixed: true,
+            drag: false,
+            resize: false,
+            follow: null,
+            lock: false,
+            init: function (here) {
+                api = this;
+                aConfig = api.config;
+                wrap = api.DOM.wrap;
+                top = parseInt(wrap[0].style.top);
+                hide = top + wrap[0].offsetHeight;
+
+                wrap.css('top', hide + 'px')
+            .animate({ top: top + 'px' }, duration, function () {
+                opt.init && opt.init.call(api, here);
+            });
+            },
+            close: function (here) {
+                wrap.animate({ top: hide + 'px' }, duration, function () {
+                    opt.close && opt.close.call(this, here);
+                    aConfig.close = $.noop;
+                    api.close();
+                });
+
+                return false;
+            }
+        };
+
+        for (var i in opt) {
+            if (config[i] === undefined) config[i] = opt[i];
+        };
+
+        return artDialog(config);
+    };
+    var chatSocket = new WebSocket('ws://'+window.location.host+'/rebate/chat/'+'{{ user.username}}'+'/');
+    chatSocket.onmessage = function(e){
+        play_click('/discount/static/sound.mp3');
+        var data = JSON.parse(e.data);
+        var _st = "用户:<span style=\"color:red;font-size:18px;\">" + data['message']['name'] + "</span>&nbsp;<br/>刚刚申请了<span style=\"color:red;\">" + data['message']['info'] + "</span>,请处理!";
+        art.dialog.notice({
+            title: '会员申请信息',
+            width: 220,
+            content: _st,
+            icon: 'face-smile',
+            time: 5
+        });
+    };
+    chatSocket.onclose = function(e){
+        //alert('后台通讯已中断，请刷新页面');
+    };
+    function play_click(url) {
+        var div = document.getElementById('divsound');
+        div.innerHTML = '<embed src="' + url + '" loop="0" autostart="true" hidden="true"></embed>';
+        console.log('1111');
+    }
+  </script>
+{% endif %}
+  <script type="text/javascript" src="{% url 'xadmin:jsi18n' %}"></script>
+  {% block extrahead %}{% endblock %}
+  {% view_block 'extrahead' %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+<div id="divsound" style="width:1px;height:1px;"><embed src="/discount/static/sound.mp3" loop="0" autostart="true" hidden="true"></embed></div>
+  {% block body %}
+    <div id="content-block" class="col-sm-12">
+    {% block content %}{% endblock content %}
+    </div>
+  {% endblock body %}
+  {% vendor 'jquery-ui-sortable.js' 'bootstrap.js' 'xadmin.main.js' 'xadmin.responsive.js' %}
+  {{ media.js }}
+  {% block extrabody %}{% endblock %}
+  {% view_block 'extrabody' %}
+</body>
+</html>

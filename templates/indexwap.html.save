@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>手机版</title>	
+	<meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">    
+    <link rel="stylesheet" type="text/css" href="../discount/static/wap/css/styleWap.css">
+	<link rel="stylesheet" type="text/css" href="../discount/static/wap/css/lCalendar.css">
+    <script src="../discount/static/wap/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="../discount/static/wap/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+    <script src="../discount/static/wap/js/swiper.min.js" type="text/javascript"></script>
+    <script src="../discount/static/wap/js/layer.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../discount/static/wap/js/scroll.js"></script>
+  	<!--<script type="text/javascript" src="../js/jeDate/jedate.js" charset="utf-8"></script>-->
+  	<script type="text/javascript" src="../discount/static/wap/js/index.js"></script>
+	<script type="text/javascript" src="../discount/static/wap/js/lCalendar.js"></script>
+    
+</head>
+<body>
+	<div class="wptop clearfix">
+		<a href="javascript:;" class="line"></a>
+		<img src="../discount/static/wap/images/logo.png">
+		<a href="javascript:;" class="btn_xun querydiv"></a>
+
+		<div class="mobile_content">
+			<div class="mobile_list clearfix">
+				<div class="lfhead">
+					<a class="mobile_hover" href="javascript:;"></a>
+					<img class="lg_logo" src="../discount/static/wap/images/logo.png">
+				</div>
+				
+
+				<div class="mobile_nav_wrap clearfix">
+					<ul>
+						<li><a href="http://www.7726001.com/" target="_blank"><img src="../discount/static/wap/images/s1.png"><b>金沙官网</b></a></li>
+						<li><a href="http://www.7726001.com/" target="_blank"><img src="../discount/static/wap/images/s2.png"><b>注册会员</b></a></li>
+						<li><a href="http://www.7726001.com/infe/rmobile" target="_blank"><img src="../discount/static/wap/images/s3.png"><b>手机下注</b></a></li>
+						<li><a href="http://www.7726001.com/" target="_blank"><img src="../discount/static/wap/images/s4.png"><b>最新优惠</b></a></li>
+						<li><a href="http://www.7726001.com/" target="_blank"><img src="../discount/static/wap/images/s5.png"><b>代理加盟</b></a></li>
+						<li><a href="https://www.7726678.com/" target="_blank"><img src="../discount/static/wap/images/s6.png"><b>线路检测</b></a></li>
+						<li><a href="https://7726app.com/hy/" target="_blank"><img src="../discount/static/wap/images/s7.png"><b>专用浏览器</b></a></li>
+						<li><a href="https://7726app.com/" target="_blank"><img src="../discount/static/wap/images/s8.png"><b>手机App</b></a></li>
+						<li><a href="javascript:;" class="querydiv"><img src="../discount/static/wap/images/s9.png"><b>审核进度查询</b></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="apbann">
+	     <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+	            	<img src="../discount/static/wap/images/AA_02_02.jpg">
+	            </div>
+	            <div class="swiper-slide">
+					<img src="../discount/static/wap/images/nav2.jpg">
+	            </div>
+	            <div class="swiper-slide">
+					<img src="../discount/static/wap/images/nav3.jpg">
+	            </div>	                            
+	        </div>
+	        <!-- Add Pagination -->
+	        <div class="swiper-pagination"></div>
+	        <!-- Add Arrows -->
+	       <!--  <div class="swiper-button-next"></div>
+	       <div class="swiper-button-prev"></div> -->
+	    </div>
+	</div>
+
+	<div class="eventtil">
+		<span>最</span>
+		<span>新</span>
+		<span>活</span>
+		<span>动</span>
+		<b class="engl_ev">latest events</b>
+	</div>
+
+	<div class="row_12 clearfix">
+        {% for set in sets %}
+		{% if set.jump_link %}
+                <div class="wboxx">
+            <p>{{ set.T_ProClassName }}</p>
+            <div class="wimgxz">
+                <a href="{{ set.jump_link }}" target="_blank">
+                    <img src="{{ set.ClassRemark }}">
+                </a>
+            </div>
+        </div>
+            {% else %}
+		<div class="wboxx">
+            <p>{{ set.T_ProClassName }}</p>
+            <div class="wimgxz">
+                <a href="javascript:;" onclick="showForm({{ forloop.counter }})">
+                    <img src="{{ set.ClassRemark }}">
+                </a>
+            </div>
+        </div>
+	{% endif %}
+        {% endfor %}
+    </div>
+
+	<div class="wpfoot">Copyright © 7726.com Reserved</div>
+
+	<div class="fixfoot">
+
+		<ul class="clearfix">
+			<li>
+				<a href="http://www.7726001.com/" target="_blank">
+					<strong>首页大厅</strong>				
+				</a>
+			</li>
+			<li>
+				<a href="http://www.g7726.com/" target="_blank">
+					<strong>立即游戏</strong>					
+				</a>
+			</li>
+			<li>
+				<a href="https://7726123.com/" target="_blank">
+					<strong>充值中心</strong>					
+				</a>
+			</li>
+			<li>
+				<a href="https://messenger3.providesupport.com/messenger/0is6whlz41l0g0mr66ucmu1ybu.html" target="_blank">
+					<strong>在线客服</strong>					
+				</a>
+			</li>
+		</ul>
+	</div>
+
+
+<div class="wrap_out" id="query_div" style="display:none;">
+	<div class="wrap_out_bg"></div>
+	<div class="wrap_out_main">
+		<p class="font_ch">优惠申请进度查询<i class='i_close'></i></p>		
+		<div class="wrap_zinmain">
+			<div class="wap_row">
+				<label>会员账号:</label>
+				<input type="text" id="query_user" name="query_option" class="wap_lgtxt" placeholder="输入会员账号">
+			</div>
+            <div class="wap_row">
+                <label>选择游戏：</label>
+                <select id="query_kinder">
+                    {% for set in sets %}
+                        <option value="{{ set.T_ProClassName }}">{{ set.T_ProClassName }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <a href="javascript:;" id="djcxbutton" class="wp_check"></a>
+		</div>
+	</div>	
+</div>
+
+<!-- 澳门金沙优惠申请 -->
+
+<!-- 弹出框表单 -->
+
+{% for set in sets%}
+<div id='nh{{ set.T_ProClassID }}' class='wrap_out' style='display:none;'>
+    <form action='recwap?act_id={{ set.T_ProClassID }}' name='doform{{ set.T_ProClassID }}' id='doform{{ set.T_ProClassID }}' method='POST'>
+        {% csrf_token %}
+        <div class='wrap_out_bg'></div>
+        <div class='wrap_out_main'><p class='font_ch'>申请主题</p>
+            <div class='wrap_zinmain'>
+                <div class='wap_row'>
+                    <p class='theme_name'>{{ set.T_ProClassName }}</p>
+                    <p class='wp_qing' onclick='showView({{ set.T_ProClassID }})'>查看详情</p>
+                </div>
+                <div class='wap_row'><label>会员帐号：</label>
+                    <input type='text' class='wap_lgtxt' placeholder='输入会员账号'  id='{{ set.T_ProClassID }}_str1' name='str1' />
+                </div>
+                {% for i in set.InfoList %}
+                <div class='wap_row'><label>{{ i }}：</label>
+                    <input type='text' class='wap_lgtxt' placeholder='填写 {{ i }} 信息' id='{{ set.T_ProClassID }}_str_{{ forloop.counter }}' name='{{ set.T_ProClassID }}_str_{{ forloop.counter }}' />
+                </div>
+                {% endfor %}
+                <a href='javascript:;' onclick='subForm{{ set.T_ProClassID }}()' class='wp_submit'></a>
+                <a href='javascript:;' class='wp_check querydiv'></a>
+            </div>
+        </div>
+    </form>
+</div>
+{% endfor %}
+
+<!-- 弹出框表单 -->
+
+<!-- 活动详情  弹窗 -->
+  
+<!-- 弹出框详情 -->
+{% for set in sets %}
+<div class='wrap_out' id='vh{{ set.T_ProClassID }}' style='display:none;'>
+    <div class='wrap_out_bg'></div>
+    <div class='content'>
+        <div class='tanhead clearfix'><p>活动详情</p>
+            <a href='javascript:;' onclick='showForm({{ set.T_ProClassID }})' class='btn_goapply fr'>立即申请</a>
+        </div>
+        <div class='tancontent'><b class='conhead'>{{ set.T_ProClassName }}</b>
+            {{ set.T_ProClassKey|safe }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!-- 弹出框详情 -->  
+
+
+  <script>
+$(function(){
+
+})
+</script>
+<script type="text/javascript">
+var re =  /^\w+$/;//判断是否为整数
+var reg = /^0?1[3|4|5|6|7|8|9][0-9]\d{8}$/; //判断手机号码
+var regc = /^([\u4E00-\u9FA5]+,?)+$/; //判断中文
+<!-- 弹出框表单JS -->
+
+{% for set in sets %}
+ function subForm{{ set.T_ProClassID }}(){
+if($("#{{ set.T_ProClassID }}_str1").val()==""){ alert("会员帐号不能为空");return false;}
+    {% for i in set.InfoList %}
+if(!re.test($("#{{ set.T_ProClassID }}_str_{{ forloop.counter }}").val())){ alert("{{ i }}必须是字符串类型");return false;}
+    {% endfor %}
+document.doform{{ set.T_ProClassID }}.submit();}
+{% endfor %}
+
+<!-- 弹出框表单JS -->
+</script>
+
+
+<!-- 审核结果 -->
+<div class="wrap_out" id="query_result" style="display:none;">
+	<div class="wrap_out_bg"></div>
+	<div class="wrap_out_main">
+		<div class="headshen">
+			<a  href="javascript:;" class="top_close">x</a>
+			信息
+		</div>
+		<div class="shenhemain" id="result_html">
+
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	  
+		$('.mobile_list').height(innerHeight);
+		$('.line').click(function(){
+            $('.mobile_list').stop().animate({'left':'0'},500);      
+        });
+        $('.mobile_hover').click(function(){
+        	$('.mobile_list').stop().animate({'left':'-100%'},500); 
+        });
+        
+        $('.mobile_content').click(function(){
+        	$('.mobile_list').stop().animate({'left':'-100%'},500);         
+        });
+                
+        $('.mobile_up .arrow').click(function(){
+        	$('.mobile_list').stop().animate({'left':'-100%'},500);           
+        });
+        $('.allbtn').click(function(){
+        	$(this).toggleClass('on');
+        });
+
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			paginationClickable: true,
+			spaceBetween: 30,
+			centeredSlides: true,
+			autoplay: 5000,
+			autoplayDisableOnInteraction: true
+		});
+
+		$('.top_close').click(function(){
+           $('.wrap_out').hide();
+        })
+
+        $('.querydiv').click(function(){
+           $('.wrap_out').hide();
+            $('#query_div').show();
+        })
+  
+  		$('.wrap_out_bg').click(function(){
+			$('.wrap_out').hide();
+		});
+		
+        $('.tan_close').click(function(){
+			$('.wrap_out').hide();
+		});
+  
+  		$('.i_close').click(function(){
+			$('.wrap_out').hide();
+		});
+		//日期
+		//var calendardatetime = new lCalendar();
+		//calendardatetime.init({
+		//	'trigger': '#10_date1',
+		//	'type': 'datetime'
+		//});
+
+});
+
+  
+function showForm(id){
+  	$('.wrap_out').hide();
+	$("#nh"+id).show();
+}	
+
+function showView(id){
+  	$('.wrap_out').hide();
+	$("#vh"+id).show();
+}  
+  
+</script>
+
+<script>
+$(document).ready(function() {
+
+	var calendardatetime = new lCalendar();
+	calendardatetime.init({
+		'trigger': '.appDateTime',
+		'type': 'datetime'
+	});
+
+
+    var nowpage = 0;
+    //给最大的盒子增加事件监听
+    $(".mobile-list").swipe(            	
+        {
+            swipe:function(event, direction, distance, duration, fingerCount) {
+                if(direction == "left"){
+                	$('.mobile-list').stop().animate({'left':'-100%'},500);
+                }                        
+            }
+        }
+    );
+       
+});   
+</script>

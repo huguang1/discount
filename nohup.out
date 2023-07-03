@@ -1,0 +1,10 @@
+usage: daphne [-h] [-p PORT] [-b HOST] [--websocket_timeout WEBSOCKET_TIMEOUT]
+              [--websocket_connect_timeout WEBSOCKET_CONNECT_TIMEOUT]
+              [-u UNIX_SOCKET] [--fd FILE_DESCRIPTOR] [-e SOCKET_STRINGS]
+              [-v VERBOSITY] [-t HTTP_TIMEOUT] [--access-log ACCESS_LOG]
+              [--ping-interval PING_INTERVAL] [--ping-timeout PING_TIMEOUT]
+              [--application-close-timeout APPLICATION_CLOSE_TIMEOUT]
+              [--ws-protocol [WS_PROTOCOLS [WS_PROTOCOLS ...]]]
+              [--root-path ROOT_PATH] [--proxy-headers]
+              application
+daphne: error: unrecognized arguments: asgi.log
